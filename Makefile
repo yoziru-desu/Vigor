@@ -11,3 +11,9 @@ update:
 rm-bundle:
 	git submodule deinit -f $(BUNDLE)
 	git rm -f $(BUNDLE)
+
+
+base-build:
+	rm -rf base/sections
+	cp -R sections base/sections
+	docker build -t arnau/vigor:base -f base/Dockerfile base
